@@ -1,6 +1,7 @@
 # Laporan Proyek Machine Learning - Nur Oktavin Idris
+Ini adalah proyek akhir sistem rekomendasi untuk memenuhi submission dicoding. Proyek ini membangun model berbasis content based filtering yang dapat menentukan top-N rekomendasi produk makeup
 
-## Project Overview _ Sistem Rekomendasi Produk Makeup
+## Project Overview
 Industri kecantikan terus berkembang pesat dengan berbagai macam produk makeup yang tersedia di pasaran, pengguna sering kali kesulitan memilih produk yang sesuai jika produk yang digunakan habis atau masih diproduksi lagi. Sehingga sistem rekomendasi dapat menjadi solusi efektif untuk membantu pelanggan memilih produk yang sesuai dengan preferensi mereka. Proyek ini bertujuan mengembangkan sistem rekomendasi produk makeup dengan memanfaatkan algoritma Content-Based Filtering, di mana rekomendasi diberikan berdasarkan kesamaan fitur antarproduk. Sistem ini dirancang untuk membantu pelanggan menemukan produk yang sesuai dengan kebutuhan mereka berdasarkan kategori dan merek yang relevan, sekaligus meningkatkan pengalaman berbelanja mereka.
 
 **Referensi Dataset:** [Makeup Insights - Kaggle](https://www.kaggle.com/datasets/zarasarkar/makeup-insights-customer-reviews).
