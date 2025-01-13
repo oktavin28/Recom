@@ -1,14 +1,10 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Nur Oktavin Idris
 
-## Project Overview
+## Project Overview _ Sistem Rekomendasi Produk Makeup
+Industri kecantikan terus berkembang pesat dengan berbagai macam produk makeup yang tersedia di pasaran, pengguna sering kali kesulitan memilih produk yang sesuai jika produk yang digunakan habis atau masih diproduksi lagi. Sehingga sistem rekomendasi dapat menjadi solusi efektif untuk membantu pelanggan memilih produk yang sesuai dengan preferensi mereka. Proyek ini bertujuan mengembangkan sistem rekomendasi produk makeup dengan memanfaatkan algoritma Content-Based Filtering, di mana rekomendasi diberikan berdasarkan kesamaan fitur antarproduk. Sistem ini dirancang untuk membantu pelanggan menemukan produk yang sesuai dengan kebutuhan mereka berdasarkan kategori dan merek yang relevan, sekaligus meningkatkan pengalaman berbelanja mereka.
 
-Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+**Referensi Dataset:** [Makeup Insights - Kaggle](https://www.kaggle.com/datasets/zarasarkar/makeup-insights-customer-reviews).
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa proyek ini penting untuk diselesaikan.
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
 
 ## Business Understanding
 
@@ -18,63 +14,82 @@ Bagian laporan ini mencakup:
 
 ### Problem Statements
 
-Menjelaskan pernyataan masalah:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+1. Bagaimana sistem dapat memberikan rekomendasi produk makeup yang sesuai dengan preferensi pengguna?
+2. Bagaimana sistem memanfaatkan data kategori dan merek untuk menentukan tingkat kesamaan antarproduk?
 
 ### Goals
 
-Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+1. Memberikan rekomendasi *top-N* produk yang relevan berdasarkan preferensi pengguna menggunakan teknik Content-Based Filtering
+2. Meningkatkan pengalaman pengguna dalam memilih produk makeup.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Approach” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution approach (algoritma atau pendekatan sistem rekomendasi).
+### Solution Approach
+Menggunakan informasi atribut produk untuk merekomendasikan produk yang mirip dengan produk yang telah disukai pengguna.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Dataset bersumber dari [Makeup Insights - Kaggle](https://www.kaggle.com/datasets/zarasarkar/makeup-insights-customer-reviews), yang  terdiri dari dua file:
+- **cleaned_makeup_products.csv**: berisi rincian produk makeup (1.373 entri, 35 variabel).
+- **cleaned_makeup_reviews.csv**: berisi ulasan produk makeup (314.029 entri, 27 variabel).
+ 
 
 Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+### Variabel Utama
+- `product_link_id`: ID unik produk.
+- `product_name`: Nama produk.
+- `brand`: Merek produk.
+- `category`: Kategori produk.
+- `rating`: Rating dari ulasan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+### Insight dari EDA
+1. Kategori "face primer" memiliki jumlah produk terbanyak.
+2. Merek "Ask A Question" mendominasi jumlah produk.
+3. Sebagian besar ulasan memiliki rating antara 4 dan 5.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+### Teknik yang Diterapkan
+1. **Mengatasi Missing Values**: Menghapus entri dengan data kosong.
+2. **Menghapus Duplikasi**: Menggunakan `drop_duplicates()` pada kolom `product_link_id`.
+3. **Konversi Data**: Mengubah kolom menjadi bentuk list untuk proses selanjutnya.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Hasil akhir: Dataset bersih dengan 915 produk unik.
 
 ## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
+### Menggunakan Content-Based Filtering dengan Pendekatan 
+1. **TF-IDF Vectorizer**: Mengubah kategori produk menjadi matriks numerik.
+2. **Cosine Similarity**: Menghitung tingkat kesamaan antarproduk.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+### Fungsi Rekomendasi
+Fungsi `rekomendasi_produk` dirancang untuk memberikan rekomendasi *top-N* produk berdasarkan produk yang dipilih pengguna.
+
+### Hasil
+Produk yang mirip dengan produk yang telah disukai pengguna sebelumnya direkomendasikan. Misalnya, pengguna memilih "Bio Stick Foundation", sistem memberikan rekomendasi 5 produk serupa, seperti:
+- **Product 1**: Nama produk, kategori, merek.
+- **Product 2**: Nama produk, kategori, merek.
+
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+Metrik evaluasi utama adalah tingkat relevansi rekomendasi berdasarkan *Cosine Similarity*. Sistem menunjukkan hasil yang baik dalam mengelompokkan produk serupa.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Metrik Evaluasi
+contohnya
+Precision@K: Mengukur proporsi rekomendasi yang relevan dalam top-K rekomendasi.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+Recall@K: Mengukur proporsi item relevan yang berhasil direkomendasikan.
 
-**---Ini adalah bagian akhir laporan---**
+Hasil Evaluasi
+contohnya:
+Content-Based Filtering:
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Precision@10: 0.75
+
+Recall@10: 0.60
+
+Hasil menunjukkan bahwa pendekatan Content-Based Filtering memiliki kinerja yang baik dalam memberikan rekomendasi yang relevan bagi pengguna.
+
+
+## Kesimpulan
+
+Sistem rekomendasi produk makeup yang dikembangkan menggunakan Content-Based Filtering berhasil memberikan rekomendasi yang relevan dan bermanfaat bagi pengguna. Pendekatan ini mampu menyajikan rekomendasi spesifik berdasarkan preferensi pengguna.
+
+---
+
