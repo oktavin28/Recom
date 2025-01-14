@@ -24,19 +24,48 @@ Pengembangan sistem rekomendasi produk makeup berbasis content-based filtering m
 Menggunakan informasi atribut produk untuk merekomendasikan produk yang mirip dengan produk yang telah disukai pengguna.
 
 ## Data Understanding
-Dataset bersumber dari [Makeup Insights - Kaggle](https://www.kaggle.com/datasets/zarasarkar/makeup-insights-customer-reviews), yang  terdiri dari dua file:
-- **cleaned_makeup_products.csv**: berisi rincian produk makeup (1.373 entri, 35 variabel).
-- **cleaned_makeup_reviews.csv**: berisi ulasan produk makeup (314.029 entri, 27 variabel).
- 
+Luxxify Makeup Dataset adalah Kumpulan Data Rias Luxxify yang dirancang untuk mendukung sistem rekomendasi produk rias(Makeup). Ini terdiri dari dua file CSV: satu untuk detail produk (*cleaned_makeup_products.csv*) dan satu lagi untuk ulasan produk (*cleaned_makeup_reviews.csv*). Dataset yang digunakan pada proyek kali ini disediakan secara publik di kaggle dengan nama datasets yaitu: *makeup-insights-customer-reviews* . Dataset ini dapat diunduh di Kaggle : [Makeup Insights - Kaggle](https://www.kaggle.com/datasets/zarasarkar/makeup-insights-customer-reviews).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Pada model kali ini dataset yang digunakan adalah file `cleaned_makeup_products.csv`
 
-### Variabel Utama
-- `product_link_id`: ID unik produk.
-- `product_name`: Nama produk.
-- `brand`: Merek produk.
+- Dataset memiliki 1373 sample dengan 37 fitur.
+- Dataset memilik 11 fitur object, 16 fitur int64, dan 8 fitur float64.
+- Terdapat Missing value pada fitur `category` sebanyak 22, fitur `num_shades` sebanyak 1309 dan `faceoff_negative` serta `faceoff_positive` sebanyak 129.
+- Tidak ada data yang duplikat.
+
+
+### Variabel Dataset
+Kolom dataset memiliki informasi berikut:
+- `product_link_id`: ID unik tautan produk.
+- `product_link`: tautan produk.
 - `category`: Kategori produk.
-- `rating`: Rating dari ulasan.
+- `item_id`: id item produk
+- `product_name`: Nama produk.
+- `brand`: Nama merek produk.
+- `price`: Harga produk
+- `num_shades`: variasi warna (shades) yang tersedia untuk produk
+- `rating`: Rating rata-rata dari pengguna
+- `num_reviews`:  Jumlah ulasan yang tersedia untuk produk.
+- `description`: Deskripsi produk.
+- `pros`: Kelebihan produk berdasarkan ulasan.
+- `cons`: Kekurangan produk berdasarkan ulasan.
+- `best_uses`: Penggunaan terbaik untuk produk berdasarkan ulasan.
+- `describe_yourself`: Deskripsi tentang diri pengguna yang memberikan ulasan.
+- `review_star_1`, `review_star_2`, `review_star_3`, `review_star_4`, `review_star_5` : Jumlah ulasan berdasarkan bintang 1-5. 
+- `rating_star_1`, `rating_star_2`, `rating_star_3`, `rating_star_4`, `rating_star_5`: Jumlah rating berdasarkan bintang 1-5.
+- `rating_count`: Total jumlah rating yang diberikan untuk produk.
+- `review_count`: Total jumlah ulasan yang diberikan untuk produk.
+- `average_rating`: Rating rata-rata berdasarkan semua ulasan.
+- `recommended_ratio`: Rasio rekomendasi pengguna (dari ulasan)
+- `native_review_count: Jumlah ulasan tiap pengguna produk.
+- `native_sampling_review_count: Jumlah ulasan dari sampel asli.
+- `native_community_content_review_count`: Jumlah ulasan komunitas untuk produk.
+- `syndicated_review_count`: Jumlah ulasan dari sumber eksternal.
+- `faceoff_negative`: Komentar negatif dari ulasan.
+- `faceoff_positive`: Komentar positif dari ulasan.
+    
+    
+
 
 ### Insight dari EDA
 1. Kategori "face primer" memiliki jumlah produk terbanyak.
