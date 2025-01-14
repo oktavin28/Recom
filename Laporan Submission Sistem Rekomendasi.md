@@ -61,8 +61,8 @@ Kolom dataset memiliki informasi berikut:
 - `review_count`: Total jumlah ulasan yang diberikan untuk produk.
 - `average_rating`: Rating rata-rata berdasarkan semua ulasan.
 - `recommended_ratio`: Rasio rekomendasi pengguna (dari ulasan)
-- `native_review_count: Jumlah ulasan tiap pengguna produk.
-- `native_sampling_review_count: Jumlah ulasan dari sampel asli.
+- `native_review_count`: Jumlah ulasan tiap pengguna produk.
+- `native_sampling_review_count`: Jumlah ulasan dari sampel asli.
 - `native_community_content_review_count`: Jumlah ulasan komunitas untuk produk.
 - `syndicated_review_count`: Jumlah ulasan dari sumber eksternal.
 - `faceoff_negative`: Komentar negatif dari ulasan.
@@ -89,7 +89,7 @@ Berdasarkan grafik distribusi rating merek, terlihat bahwa merek *IT Cosmetics* 
 
 - Identifikasi Missing Values
 
-Menghitung jumlah Missing Values di setiap kolom. Pada langkah ini, menggunakan fungsi `df.isnull().sum()` untuk menghitung jumlah missing values di setiap kolom dalam dataset. Analisis ini membantu mengidentifikasi kolom mana yang memerlukan penanganan, seperti imputasi atau penghapusan baris/kolom. Langkah ini penting untuk memastikan dataset siap digunakan untuk analisis dan pemodelan machine learning. Output menunjukkan fitur `category` memiliki 5 missing value, `brand` memiliki 1 missing value, `pros` sebanyak 36, `cons` sebanyak 38, dan `best_uses` sebanyak 41.
+Menghitung jumlah Missing Values di setiap kolom. Pada langkah ini, menggunakan fungsi `products_relevant.isnull().sum()` untuk menghitung jumlah missing values di setiap kolom dalam dataset. Analisis ini membantu mengidentifikasi kolom mana yang memerlukan penanganan, seperti imputasi atau penghapusan baris/kolom. Langkah ini penting untuk memastikan dataset siap digunakan untuk analisis dan pemodelan machine learning. Output menunjukkan fitur `category` memiliki 5 missing value, `brand` memiliki 1 missing value, `pros` sebanyak 36, `cons` sebanyak 38, dan `best_uses` sebanyak 41.
 
 
 ## Data Preparation
