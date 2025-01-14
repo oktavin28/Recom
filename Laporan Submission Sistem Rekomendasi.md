@@ -167,7 +167,7 @@ Hasil evaluasi Davies-Bouldin Score sebesar 0.13 menunjukkan bahwa hasil cluster
 
 ## Kesimpulan
 
-Sistem rekomendasi produk makeup yang dikembangkan menggunakan Content-Based Filtering berhasil memberikan rekomendasi yang relevan dan bermanfaat bagi pengguna. Pendekatan ini mampu menyajikan rekomendasi spesifik berdasarkan preferensi pengguna.
+Sistem rekomendasi produk makeup yang dikembangkan menggunakan Content-Based Filtering berhasil memberikan rekomendasi yang relevan dan bermanfaat bagi pengguna. Pendekatan ini mampu menyajikan rekomendasi spesifik berdasarkan preferensi pengguna. Evaluasi model memberikan dampak signifikan pada pemahaman bisnis (business understanding) dalam proyek sistem rekomendasi ini. Hal ini mendukung efisiensi sistem dalam merekomendasikan produk yang relevan, yang secara langsung berdampak pada pengalaman pengguna. Dalam konteks bisnis, evaluasi ini menegaskan bahwa sistem dapat secara andal mengelompokkan produk berdasarkan fitur yang serupa, seperti kategori. Hasilnya adalah rekomendasi yang lebih relevan dan personal, yang dapat meningkatkan kepuasan pengguna, loyalitas pelanggan, dan konversi penjualan. Dengan kemampuan model yang terbukti efektif, perusahaan brand produk dapat membangun kepercayaan pada sistem rekomendasi untuk mendukung pertumbuhan bisnis, terutama di pasar produk kecantikan yang kompetitif. Evaluasi yang baik juga memberikan kepercayaan kepada pemangku kepentingan untuk mengintegrasikan sistem ini ke dalam strategi bisnis yang lebih luas.
 
 
 ## Referensi
