@@ -8,10 +8,7 @@ Industri kecantikan terus berkembang pesat dengan berbagai macam produk makeup y
 
 
 ## Business Understanding
-
-Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
+Pengembangan sistem rekomendasi produk makeup berbasis content-based filtering memiliki potensi besar untuk meningkatkan pengalaman belanja pengguna dan mendukung pertumbuhan platform penjualan produk kecantikan. Sistem ini dapat membantu pengguna menemukan produk makeup yang sesuai dengan kebutuhan dan preferensi mereka dengan lebih cepat dan akurat, seperti jenis kulit, kategori produk, dan fitur produk yang diinginkan. Selain itu, sistem ini dapat meningkatkan engagement pengguna, mendorong loyalitas pelanggan, dan mengoptimalkan konversi penjualan produk. Dengan menyediakan rekomendasi yang dipersonalisasi, brand/merek dapat membangun hubungan yang lebih baik dengan pengguna sekaligus meningkatkan efisiensi operasional.
 
 ### Problem Statements
 
