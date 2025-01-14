@@ -68,9 +68,14 @@ Kolom dataset memiliki informasi berikut:
 
 
 ### Insight dari EDA
-1. Kategori "face primer" memiliki jumlah produk terbanyak.
-2. Merek "Ask A Question" mendominasi jumlah produk.
-3. Sebagian besar ulasan memiliki rating antara 4 dan 5.
+
+![Distribusi Produk perKategori](https://github.com/oktavin28/Recom/blob/main/Distribusi%20produk.png?raw=true)
+
+![Distribusi Produk perMerek](https://github.com/oktavin28/Recom/blob/main/Distribusi%20Merek.png?raw=true)
+
+![Rating Produk](https://github.com/oktavin28/Recom/blob/main/Rating%20Produk.png?raw=true)
+
+![Rating Merek](https://github.com/oktavin28/Recom/blob/main/Rating%20Merek.png?raw=true)
 
 ## Data Preparation
 ### Teknik yang Diterapkan
